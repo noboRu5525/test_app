@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 void main() {
+<<<<<<< HEAD
   runApp(const MyApp());
 }
 
@@ -25,10 +26,25 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(title: 'Flutter Demo Home Page'),
+=======
+  runApp(MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      title: 'My Todo App',
+      theme: ThemeData(
+        primarySwatch: Colors.blue,
+      ),
+      home: TodoListPage(),
+>>>>>>> 9120527 (Initial commit)
     );
   }
 }
 
+<<<<<<< HEAD
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
 
@@ -113,3 +129,60 @@ class _MyHomePageState extends State<MyHomePage> {
     );
   }
 }
+=======
+class TodoListPage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("リスト一覧"),
+      ),
+      body: ListView(
+        children: <Widget>[
+          Card(
+            child: ListTile(
+              title: Text("ninjin"),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text("ninjin"),
+            ),
+          ),
+          Card(
+            child: ListTile(
+              title: Text("ninjin"),
+            ),
+          )
+        ],
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: (){
+          Navigator.of(context).push(
+            MaterialPageRoute(builder: (context){
+              return TodoAddPage();
+            }),
+          );
+        },
+        child: Icon(Icons.add),
+      ),
+    );
+  }
+}
+
+class TodoAddPage extends StatelessWidget{
+  @override
+  Widget build(BuildContext context){
+    return Scaffold(
+      body: Center(
+        child: TextButton(
+          onPressed: (){
+            Navigator.of(context).pop();
+          },
+          child: Text("リスト追加画面（クリックで戻る)"),
+        ),
+      ),
+    );
+  }
+}
+>>>>>>> 9120527 (Initial commit)
